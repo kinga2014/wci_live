@@ -1,0 +1,20 @@
+/* General Settings */
+/* General Settings - Fonts */
+@font-face {
+font-weight:normal;
+font-family:'bluehost';
+src:url(http://bluehost-cdn.com/media/branding/_bh/bh_regular.eot);
+src:url(http://bluehost-cdn.com/media/branding/_bh/bh_regular.eot?#iefix) format('embedded-opentype'),
+    url(http://bluehost-cdn.com/media/branding/_bh/bh_regular.woff) format('woff'),
+    url(http://bluehost-cdn.com/media/branding/_bh/bh_regular.ttf) format('truetype'),
+    url(http://bluehost-cdn.com/media/branding/_bh/bh_regular.svg#bh_regular) format('svg');
+}
+@font-face {
+font-weight:bold;
+font-family:'bluehost';
+src:url(http://bluehost-cdn.com/media/branding/_bh/bh_bold.eot);
+src:url(http://bluehost-cdn.com/media/branding/_bh/bh_bold.eot?#iefix) format('embedded-opentype'),
+    url(http://bluehost-cdn.com/media/branding/_bh/bh_bold.woff) format('woff'),
+    url(http://bluehost-cdn.com/media/branding/_bh/bh_bold.ttf) format('truetype'),
+    url(http://bluehost-cdn.com/media/branding/_bh/bh_bold.svg#bh_bold) format('svg');
+}

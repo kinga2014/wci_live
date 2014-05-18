@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html><!-- <![endif]-->
+<head>
+	<title>PTXT4WRD ADMINISTRATOR SYSTEM</title>
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+	<link rel="shortcut icon" href="../images/ptxt_logo.ico">
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	<link rel="stylesheet/less" href="../assets/less/admin/module.admin.page.login.less" />
+	-->
+	
+		<!--[if lt IE 9]><link rel="stylesheet" href="../assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
+	<link rel="stylesheet" href="../assets/css/admin/module.admin.page.login.min.css" />
+	
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+	<script src="../assets/components/library/jquery/jquery.min.js?v=v1.2.2"></script>
+	<script src="../assets/components/library/jquery/jquery-migrate.min.js?v=v1.2.2"></script>
+	<script src="../assets/components/library/modernizr/modernizr.js?v=v1.2.2"></script>
+	<script src="../assets/components/plugins/less-js/less.min.js?v=v1.2.2"></script>
+	<script src="../assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v1.2.2"></script>
+	<script src="../assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v1.2.2"></script>	
+	<script src="../jQuery/DateTime.js"></script>
+	<script>
+		function do_login() {
+			$( document ).ready(function() {
+			  	// Handler for .ready() called.
+				var email = $("#txtEmail").val();
+				var password = $("#txtPassword").val();
+				var datetime = $("#txtDateTime").val();
+				
+				if (email == "" || password == "") {
+					alert("Please check your email or password...")
+					return false;
+				}
+				
+				var type = "GET";
+				var url = "../controller/login.php";
+				var data = "username="+email+"&password="+password+"&datetime="+datetime;
+				do_ptxt_worx(type, url, data);
+			});
+		}
+		
+		function do_ptxt_worx(ptxtType, ptxtUrl, ptxtData) {
+			$(document).ready(function(){
+				$.ajax({
+					type: ptxtType,
+					url: ptxtUrl,
+					data: ptxtData,
+					cache: false,
+					beforeSend: function () { 
+						$('#loader').show();
+					},
+					success: function(html) { 
+						var returns = html;
+						if(returns.indexOf("Success") !=-1) {
+							cleanHistory("../admin/");
+							return;
+						}
+						$('#loader').hide();
+						alert(returns);
+					}
+				});
+			});
+		}
+		
+		function clear_cache() { localStorage.clickcount = 0; localStorage.cho = ""; }
+		
+		function cleanHistory(url)
+		{
+		  	var Backlen = history.length;   
+		  	history.go(-Backlen);
+		  	clear_cache();
+		  	Redirect(url);
+		}
+		
+		function Redirect (url) {
+		    var ua        = navigator.userAgent.toLowerCase(),
+		        isIE      = ua.indexOf('msie') !== -1,
+		        version   = parseInt(ua.substr(4, 2), 10);
+		
+		    // IE8 and lower
+		    if (isIE && version < 9) {
+		        var link = document.createElement('a');
+		        link.href = url;
+		        document.body.appendChild(link);
+		        link.click();
+		    }
+		
+		    // All other browsers
+		    else { 
+		    	window.location.href = url; 
+		    }
+		}
+
+		$(document).ready(function(){
+			$('#loader').hide();
+		});
+	</script>
+</head>
+<body class=" loginWrapper" onload="LocatCurDateTime('txtDateTime');">
+<div id="content"><h4 class="innerAll margin-none border-bottom text-center"><i class="fa fa-lock"></i> Login to your Account</h4>
+<div class="login spacing-x2">
+	<div class="placeholder text-center"><i class="fa fa-lock"></i></div>
+	<div class="col-sm-6 col-sm-offset-3">
+		<div class="panel panel-default">
+			<div class="panel-body innerAll">
+	  	  		<div class="form-group">
+		    		<label for="exampleInputEmail1">Email address</label>
+	    			<input type="email" class="form-control" id="txtEmail" placeholder="Enter email or mobile">
+		  		</div>
+		  		<div class="form-group">
+		    		<label for="exampleInputPassword1">Password</label>
+		    		<input type="password" class="form-control" id="txtPassword" placeholder="Password">
+		    		<input type="hidden" id="txtDateTime" name="txtDateTime" /> 
+		  		</div>
+		  		<button type="submit" class="btn btn-primary btn-block" onclick="do_login();">Login</button>
+	  			<div class="checkbox">
+		    		<label>
+		      			<input type="checkbox"> Remember my details
+		    		</label>
+		  		</div>
+		  	</div>
+		</div>
+	</div>
+	<div id='loader' style="margin-top: 300px; margin-left: 210px;">
+		
+		<img src="../images/486.gif" alt="" style="float: left; margin-top: 6px; margin-left: 5px;">
+		<span style="float: left; margin-top: 6px; margin-left: 5px; font-size: 11px;">Please wait while page is loading...</span>
+	</div>
+	<!-- <div class="col-sm-6 col-sm-offset-3 text-center">
+		<a href="signup.html?lang=en" class="btn btn-info">Create a new account? <i class="fa fa-pencil"></i> </a>
+	</div> -->
+</div>
+<!-- Global -->
+<script>
+var basePath = '',
+	commonPath = '../assets/',
+	rootPath = '../',
+	DEV = false,
+	componentsPath = '../assets/components/';
+
+var primaryColor = '#cb4040',
+	dangerColor = '#b55151',
+	infoColor = '#466baf',
+	successColor = '#8baf46',
+	warningColor = '#ab7a4b',
+	inverseColor = '#45484d';
+
+var themerPrimaryColor = primaryColor;
+</script>
+<script src="../assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.2"></script>
+<script src="../assets/components/plugins/nicescroll/jquery.nicescroll.min.js?v=v1.2.2"></script>
+<script src="../assets/components/plugins/breakpoints/breakpoints.js?v=v1.2.2"></script>
+<script src="../assets/components/core/js/animations.init.js?v=v1.2.2"></script>
+<script src="../assets/components/helpers/themer/assets/plugins/cookie/jquery.cookie.js?v=v1.2.2"></script>
+<script src="../assets/components/core/js/core.init.js?v=v1.2.2"></script>	
+</body>
+</html>

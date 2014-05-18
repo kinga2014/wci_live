@@ -1,0 +1,126 @@
+/*-----------------------------------------------------------------------------------*/
+/*	Diagonal
+/*-----------------------------------------------------------------------------------*/
+.b-link-diagonal{
+position:relative;
+display:inline-block;
+vertical-align:top;
+font-family: 'Open Sans', sans-serif;
+font-weight: 300;
+margin-bottom: 5px;
+overflow:hidden;
+}
+.b-link-diagonal .b-wrapper{
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+text-align:center;
+color:#fff;
+overflow:hidden;
+}
+.b-link-diagonal .b-line-group{
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+
+transform: rotate(-25deg);
+-webkit-transform: rotate(-25deg);
+-moz-transform: rotate(-25deg);
+-o-transform: rotate(-25deg);
+-ms-transform: rotate(-25deg);
+}
+.b-link-diagonal .b-line{
+position:absolute;
+top: -90px;
+bottom: -60px;
+width:22%;
+background:#181a1a;
+
+transition:all 0.1s linear;
+-moz-transition:all 0.1s linear;
+-ms-transition:all 0.1s linear;
+-o-transition:all 0.1s linear;
+-webkit-transition:all 0.1s linear;
+
+/* Required for IE 5, 6, 7 */
+/* ...or something to trigger hasLayout, like zoom: 1; */
+width: 100%; 
+	
+/* Theoretically for IE 8 & 9 (more valid) */	
+/* ...but not required as filter works too */
+/* should come BEFORE filter */
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+
+/* This works in IE 8 & 9 too */
+/* ... but also 5, 6, 7 */
+filter: alpha(opacity=10);
+
+/* Older than Firefox 0.9 */
+-moz-opacity:0.1;
+
+/* Safari 1.x (pre WebKit!) */
+-khtml-opacity: 0.1;
+
+/* Modern!
+/* Firefox 0.9+, Safari 2?, Chrome any?
+/* Opera 9+, IE 9+ */
+opacity: 0.1;
+
+}
+
+.b-link-diagonal .b-line1{
+left: -10%;
+width: 31%;
+}
+.b-link-diagonal .b-line2{
+left:20%;
+transition-delay:0.1s !important;
+-moz-transition-delay:0.1s !important;
+-ms-transition-delay:0.1s !important;
+-o-transition-delay:0.1s !important;
+-webkit-transition-delay:0.1s !important;
+}
+.b-link-diagonal .b-line3{
+left:40%;
+transition-delay:0.2s !important;
+-moz-transition-delay:0.2s !important;
+-ms-transition-delay:0.2s !important;
+-o-transition-delay:0.2s !important;
+-webkit-transition-delay:0.2s !important;
+}
+.b-link-diagonal .b-line4{
+left:60%;
+transition-delay:0.3s !important;
+-moz-transition-delay:0.3s !important;
+-ms-transition-delay:0.3s !important;
+-o-transition-delay:0.3s !important;
+-webkit-transition-delay:0.3s !important;
+}
+.b-link-diagonal .b-line5{
+left: 80%;
+width: 30%;
+transition-delay:0.4s !important;
+-moz-transition-delay:0.4s !important;
+-ms-transition-delay:0.4s !important;
+-o-transition-delay:0.4s !important;
+-webkit-transition-delay:0.4s !important;
+}
+
+.b-link-diagonal .b-line1, .b-link-diagonal .b-line3, .b-link-diagonal .b-line5{
+top: 130%;
+}
+.b-link-diagonal .b-line2, .b-link-diagonal .b-line4{
+bottom: 130%;
+}
+.b-link-diagonal:hover .b-line1, .b-link-diagonal:hover .b-line3, .b-link-diagonal:hover .b-line5{
+top: -90px;
+}
+
+.b-link-diagonal:hover .b-line2, .b-link-diagonal:hover .b-line4{
+bottom: -60px;
+}
+

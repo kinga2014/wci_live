@@ -1,0 +1,26 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=cyrillic-ext,cyrillic,latin);
+
+.kinotice { 
+    width:150px; 
+    border:2px solid #9dbb3e; 
+    border-bottom: none;
+    background:#adcd46; 
+    -webkit-border-radius: 6px 6px 0px 0px; 
+    -moz-border-radius: 6px 6px 0px 0px; 
+    border-radius: 6px 6px 0px 0px; 
+    position:fixed; 
+    right:10px; 
+    bottom:0px; 
+    margin:0; 
+    padding:0; 
+    z-index:1; 
+    visibility:hidden;
+    color:#fff;
+    height: 50px;
+}
+.kinotice.init { visibility:visible; display:block; }
+.kinotice-toggle { display:block; position:absolute; background: #9dbb3e; right:0px; z-index:2; color:#fff; }
+.kinotice-toggle span { min-width: 10px; display:inline-block; padding:1px 4px 2px 4px; cursor: pointer; text-align:center; }
+.kinotice-inner { padding:7px 10px; }
+.kinotice-title { padding: 0px; margin-bottom: 5px; }
+.kinotice-content { padding:0px; }

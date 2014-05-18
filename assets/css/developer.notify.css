@@ -1,0 +1,40 @@
+#top_notify {
+	width: 100%;
+	height: 30px;
+	position: fixed;
+	background-color: #f41252;
+	color: #fff;
+	z-index: 99;
+}
+
+#top_notify #top_content {
+	margin: 0 auto;
+	width: 960px;
+	height: 30px;
+}
+
+#top_notify #top_content p {
+	margin-top: 5px;
+	color: #fff;
+	font-size: 1.1em;
+	font-weight: normal;
+}
+
+#top_notify #top_content .p_left {
+	float: left;
+}
+
+#top_notify #top_content .p_right {
+	float: right;
+}
+
+#top_notify #top_content  a {
+	color: #fff;
+	font-size: 1.1em; 
+  	font-weight: normal;
+	text-decoration: none;
+}
+
+#top_notify #top_content a:hover {
+	text-decoration: underline;
+}
