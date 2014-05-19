@@ -27,9 +27,9 @@ linkedin			-> http://ph.linkedin.com/in/kingpauloaquino
   
   <link href='<?php echo $Assets->path("images", "weconex_icon.png", $IsLive); ?>' rel='stylesheet' type='text/css'>
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-   <!-- <script src="http://code.jquery.com/jquery-1.10.1.js"></script> -->
+  <script src="http://code.jquery.com/jquery-1.10.1.js"></script>
    
-  <script src="<?php echo $Assets->path("js", "jquery-2.0.3.min.js", $IsLive); ?>"></script>
+  <!-- <script src="<?php echo $Assets->path("js", "jquery-2.0.3.min.js", $IsLive); ?>"></script> -->
   <script src="<?php echo $Assets->path("js", "jquery.easing.min.js", $IsLive); ?>"></script>
   <script src="<?php echo $Assets->path("js", "hover_pack.js", $IsLive); ?>"></script>
   <script src="<?php echo $Assets->path("js", "bootstrap.min.js", $IsLive); ?>"></script>

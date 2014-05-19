@@ -1,22 +1,26 @@
 <?php
 
 	require_once 'controller/Queries.php';
-	$ds = DIRECTORY_SEPARATOR;  //1
-	$storeFolder = 'upload';   //2
 	$img_codes = $_GET["uuid"];
-	
+	$local_path = "C:\\WECONX\\WWW\\wci.bak\\OneDrive\\images";
 	 
 	if (!empty($_FILES)) {
 	 	
 	    $tempFile = $_FILES['file']['tmp_name'];
-	    $targetPath = dirname( __FILE__ ) . $ds . $storeFolder . $ds;
+	    $targetPath = $local_path;
 	    $img_name = $_FILES['file']['name'];
-	    $targetFile =  $targetPath . $img_name;
-	 
-	 	$sql = "INSERT INTO kpadb_images (img_uuid, img_filename) VALUES ('$img_codes', '$img_name');";
+		
+		$min_rand = rand(0,1000);
+		$max_rand = rand(100000000000,10000000000000000);
+		$name_file = rand($min_rand,$max_rand);
+		
+		$ext = end(explode(".", $img_name));
+		$newfilename =  "weconx_img_" . $img_codes . "_" . $name_file.".".$ext;
+	    $targetFile =  $targetPath . $newfilename;
+	 	$sql = "INSERT INTO kpadb_images (img_uuid, img_filename) VALUES ('$img_codes', '$newfilename');";
+		
 	 	$Queries->Execute($sql);
 	    move_uploaded_file( $tempFile, $targetFile );
-		
 	}
 	
 ?> 

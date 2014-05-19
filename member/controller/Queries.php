@@ -1,7 +1,7 @@
 <?php
 class Queries
 {
-	public static $server = "wci-live.sytes.net";
+	public static $server = "mysql-connection.weconx.com";
 	public static $user = "root";
 	public static $password = "@BC12abc";
 	public static $database = "kpadb_weconx";
