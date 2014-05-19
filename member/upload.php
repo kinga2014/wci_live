@@ -2,7 +2,7 @@
 
 	require_once 'controller/Queries.php';
 	$img_codes = $_GET["uuid"];
-	$local_path = "C:\\WECONX\\WWW\\wci.bak\\OneDrive\\images";
+	$local_path = "C:\\WECONX\\WWW\\wci.bak\\OneDrive\\images\\";
 	 
 	if (!empty($_FILES)) {
 	 	
